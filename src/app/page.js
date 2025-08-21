@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "./Navbar/page";
 import Footer from "./Footer/page";
+import Hero from "./Hero/page";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       {/* Components */}
       <div className="relative z-10">
         <Navbar />
+        <Hero></Hero>
         <Footer></Footer>
       </div>
     </div>

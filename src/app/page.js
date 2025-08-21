@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "./Navbar/page";
 import Footer from "./Footer/page";
 import Hero from "./Hero/page";
+import Services from "./Services/page";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <Hero></Hero>
+        <div className="max-w-[1300px] mx-auto">
+          <Services></Services>
+        </div>
         <Footer></Footer>
       </div>
     </div>

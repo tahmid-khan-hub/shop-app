@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <div className="navbar sticky top-0 z-50 bg-white/60 border-b shadow-sm backdrop-blur-md">
+    <div className="navbar sticky top-0 z-50 bg-background/55 backdrop-blur-md text-white">
       <div className="max-w-[1300px] w-[96%] mx-auto flex justify-between items-center">
         <div className="navbar-start">
         <div className="dropdown">

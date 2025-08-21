@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navbar from "./Navbar/page";
+import Footer from "./Footer/page";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       {/* Components */}
       <div className="relative z-10">
         <Navbar />
+        <Footer></Footer>
       </div>
     </div>
   );

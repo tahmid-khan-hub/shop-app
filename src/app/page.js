@@ -1,9 +1,10 @@
 import Link from "next/link";
+import Navbar from "./Navbar/page";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello to shop app</h1>
+      <Navbar></Navbar>
     </div>
   );
 }

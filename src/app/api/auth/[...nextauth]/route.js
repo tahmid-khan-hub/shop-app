@@ -19,7 +19,7 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         // Example with MongoDB
-        const user = { id: "1", name: "Test User", email: credentials.email };
+        const user = { id: "1", name: credentials.name, email: credentials.email };
 
         if (user) return user;
         return null;

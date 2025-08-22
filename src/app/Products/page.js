@@ -6,8 +6,27 @@ import Loader from "../Loader/page";
 import Navbar from "../Navbar/page";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import Swal from "sweetalert2";
 
 export default function ProductsPage() {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("login") === "success") {
+      Swal.fire({
+        title: "Login Successful!",
+        text: "Welcome back!",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, [searchParams]);
+
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {

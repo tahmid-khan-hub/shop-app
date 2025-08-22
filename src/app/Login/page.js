@@ -6,7 +6,7 @@ import Footer from "../Footer/page";
 
 export default function LoginPage() {
   const handleGoogleLogin = async () => {
-    await signIn("google", { callbackUrl: "/products" });
+    await signIn("google", { callbackUrl: "/Products" });
   };
 
   return (
@@ -37,7 +37,7 @@ export default function LoginPage() {
                   await signIn("credentials", {
                     email,
                     password,
-                    callbackUrl: "/products",
+                    callbackUrl: "/Products",
                   });
                 }}
                 className="flex flex-col gap-3"

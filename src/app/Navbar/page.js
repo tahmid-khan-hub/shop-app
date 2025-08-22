@@ -2,10 +2,33 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Navbar() {
   const { data: session } = useSession();
   const router = useRouter();
+
+  const links = (
+    <>
+      <li>
+        <Link href="/" className="hover:text-gray-300">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link href="/products" className="hover:text-gray-300">
+          Products
+        </Link>
+      </li>
+      {session && (
+        <li>
+          <Link href="/dashboard" className="hover:text-gray-300">
+            Dashboard
+          </Link>
+        </li>
+      )}
+    </>
+  );
 
   return (
     <div className="navbar sticky top-0 z-50 bg-background/55 backdrop-blur-md text-white">
@@ -33,15 +56,7 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Home</a>
-              </li>
-              <li>
-                <a>Products</a>
-              </li>
-              <li>
-                <a>Dashboard</a>
-              </li>
+              {links}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">ShopApp</a>
@@ -50,15 +65,7 @@ export default function Navbar() {
         {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Products</a>
-            </li>
-            <li>
-              <a>Dashboard</a>
-            </li>
+            {links}
           </ul>
         </div>
 
@@ -71,9 +78,7 @@ export default function Navbar() {
           ) : (
             <button
               className="btn "
-              onClick={() =>
-                signOut({ callbackUrl: "http://localhost:3000" })
-              }
+              onClick={() => signOut({ callbackUrl: "http://localhost:3000" })}
             >
               Log out
             </button>

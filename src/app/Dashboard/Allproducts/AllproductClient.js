@@ -3,8 +3,6 @@
 import Loader from "@/app/Loader/page";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 
 export default function AllProductClient() {
     const { data: products = [], isLoading } = useQuery({

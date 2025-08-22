@@ -16,13 +16,13 @@ export default function Navbar() {
         </Link>
       </li>
       <li>
-        <Link href="/products" className="hover:text-gray-300">
+        <Link href="/Products" className="hover:text-gray-300">
           Products
         </Link>
       </li>
       {session && (
         <li>
-          <Link href="/dashboard" className="hover:text-gray-300">
+          <Link href="/Dashboard" className="hover:text-gray-300">
             Dashboard
           </Link>
         </li>

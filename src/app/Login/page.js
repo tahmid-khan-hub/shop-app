@@ -56,7 +56,7 @@ export default function LoginPage() {
                   className="input input-bordered w-full"
                   required
                 />
-                <button type="submit" className="btn btn-neutral w-full">
+                <button type="submit" className="btn bg-emerald-500 hover:bg-emerald-600 border border-emerald-700 w-full">
                   Login
                 </button>
               </form>
@@ -67,7 +67,7 @@ export default function LoginPage() {
               {/* Google Login */}
               <button
                 onClick={handleGoogleLogin}
-                className="btn bg-white text-black border-[#abf4a9] flex items-center gap-2"
+                className="btn bg-white text-black border-emerald-500 flex items-center gap-2"
               >
                 <svg
                   aria-label="Google logo"

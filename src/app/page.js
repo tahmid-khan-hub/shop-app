@@ -3,6 +3,7 @@ import Navbar from "./Navbar/page";
 import Footer from "./Footer/page";
 import Hero from "./Hero/page";
 import Services from "./Services/page";
+import HighlightSection from "./Highlight/page";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Navbar />
         <Hero></Hero>
         <div className="max-w-[1300px] mx-auto">
+          <HighlightSection></HighlightSection>
           <Services></Services>
         </div>
         <Footer></Footer>

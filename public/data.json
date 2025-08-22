@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Wireless Headphones",
+    "description": "Comfortable over-ear headphones with noise cancellation and long battery life.",
+    "price": "1200",
+    "image": "https://i.ibb.co.com/KzKTScGx/image.png"
+  },
+  {
+    "name": "Smartphone Stand",
+    "description": "Adjustable desk stand compatible with all smartphones and tablets.",
+    "price": "250",
+    "image": "https://i.ibb.co.com/yn7qVjf9/image.png"
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "description": "Portable waterproof Bluetooth speaker with deep bass and stereo sound.",
+    "price": "600",
+    "image": "https://i.ibb.co.com/vxhDgyJW/image.png"
+  }
+]

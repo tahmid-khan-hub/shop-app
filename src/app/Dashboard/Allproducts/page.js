@@ -1,8 +1,10 @@
+import AllProductClient from "./AllproductClient";
+
+export const metadata = {
+  title: "ShopApp | All Products",
+  description: "Browse our awesome products",
+};
+
 export default function AllProductsPage() {
-  return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Products</h1>
-      {/* product list goes here */}
-    </div>
-  );
+    return <AllProductClient></AllProductClient>;
 }

@@ -3,26 +3,33 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Loader from "../Loader/page";
+import brand from "../../../public/shopping-bag.png"
+import Image from "next/image";
 
 export default function Navbar() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
+
+  if (status === "loading") {
+    return <Loader />;
+  }
 
   const links = (
     <>
       <li>
-        <Link href="/" className="hover:text-gray-300">
+        <Link href="/" className="font-semibold text-emerald-500 hover:text-emerald-600">
           Home
         </Link>
       </li>
       <li>
-        <Link href="/Products" className="hover:text-gray-300">
+        <Link href="/Products" className="font-semibold text-emerald-500 hover:text-emerald-600">
           Products
         </Link>
       </li>
       {session && (
         <li>
-          <Link href="/Dashboard" className="hover:text-gray-300">
+          <Link href="/Dashboard" className="font-semibold text-emerald-500 hover:text-emerald-600">
             Dashboard
           </Link>
         </li>
@@ -36,7 +43,7 @@ export default function Navbar() {
         {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden -ml-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -59,7 +66,10 @@ export default function Navbar() {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">ShopApp</a>
+          <div className="navbar-start">
+            <Image className="w-8 mr-2 ml-2.5" src={brand} alt="shopApp Logo"></Image>
+            <a className=" text-xl font-semibold text-emerald-500">Shop<span className="text-2xl">A</span>pp</a>
+          </div>
         </div>
 
         {/* Navbar Center */}
@@ -72,12 +82,12 @@ export default function Navbar() {
         {/* Navbar End */}
         <div className="navbar-end">
           {!session ? (
-            <button className="btn" onClick={() => router.push("/Login")}>
+            <button className="btn mr-2.5" onClick={() => router.push("/Login")}>
               Login
             </button>
           ) : (
             <button
-              className="btn "
+              className="btn mr-2.5"
               onClick={() => signOut({ callbackUrl: "http://localhost:3000" })}
             >
               Log out

@@ -88,7 +88,7 @@ export default function Navbar() {
           ) : (
             <button
               className="btn mr-2.5 bg-emerald-500 hover:bg-emerald-600 border border-emerald-700"
-              onClick={() => signOut({ callbackUrl: "http://localhost:3000" })}
+              onClick={() => signOut({ callbackUrl: "https://shop-app-server-six.vercel.app" })}
             >
               Log out
             </button>

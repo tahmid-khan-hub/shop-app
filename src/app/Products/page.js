@@ -1,5 +1,6 @@
-// app/Products/page.js (server component)
+import { Suspense } from "react";
 import ProductsClient from "./ProductsClient";
+import Loader from "../Loader/page";
 
 export const metadata = {
   title: "ShopApp | Products",
@@ -7,5 +8,9 @@ export const metadata = {
 };
 
 export default function ProductsPage() {
-  return <ProductsClient />;
+  return (
+    <Suspense fallback={<div><Loader></Loader></div>}>
+      <ProductsClient />
+    </Suspense>
+  );
 }

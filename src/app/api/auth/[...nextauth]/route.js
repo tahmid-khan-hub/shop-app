@@ -1,3 +1,7 @@
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
+
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -11,9 +15,8 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const user = { id: "1", name: "Test User", email: credentials.email };
-        if (user) return user;
-        return null;
+        if (!credentials?.email || !credentials?.password) return null;
+        return { id: "1", name: "User", email: credentials.email };
       },
     }),
   ],
@@ -21,19 +24,8 @@ const handler = NextAuth({
     signIn: "/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
-  session: {
-    strategy: "jwt",
-  },
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) token.id = user.id; 
-      return token;
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id;
-      }
-      return session;
-    },
-  },
+
 });
+
+// In the App Router you must export GET and POST:
+export { handler as GET, handler as POST };

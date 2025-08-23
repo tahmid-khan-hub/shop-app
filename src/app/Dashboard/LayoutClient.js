@@ -13,9 +13,21 @@ import {
   FaHome,
 } from "react-icons/fa";
 import brand from "../../../public/shopping-bag.png";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Loader from "../Loader/page";
 
 export default function DashboardLayoutClient({ children }) {
   const [isOpen, setIsOpen] = useState(false);
+  
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") return <Loader></Loader>;
+  if (!session) {
+    router.push("/Login"); 
+    return null;
+  }
 
   return (
     <div className="flex min-h-screen">

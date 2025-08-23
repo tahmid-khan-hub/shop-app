@@ -9,6 +9,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
+import Link from "next/link";
 
 export default function ProductsClient() {
   const searchParams = useSearchParams();
@@ -65,6 +66,13 @@ export default function ProductsClient() {
               <div className="mt-auto text-left">
                 <h2 className="card-title text-xl mt-4">{product.name}</h2>
                 <p className="font-bold mt-9">${product.price}</p>
+                {/* View Details */}
+                <Link
+                  href={`/Products/${product._id}`} 
+                  className=" btn bg-emerald-500 hover:bg-emerald-600 border border-emerald-700 mt-9"
+                >
+                  View Details
+                </Link>
               </div>
             </div>
           </div>

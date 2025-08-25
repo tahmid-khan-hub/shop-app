@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ShopApp
 
-## Getting Started
+**ShopApp** is a Next.js project where users can easily **browse products**, view **highlighted items** and check the **details of each product**.  
+After logging in, users gain access to a **Dashboard** where they can add products. 
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ⚙️ Setup & Installation
 
-Open [https://shop-app-server-six.vercel.app](https://shop-app-server-six.vercel.app) with your browser to see the result.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/tahmid-khan-hub/shop-app.git
+   cd shop-app
+   
+2. **Install dependencies**
+   ```bash
+   npm install
+   
+3. **Setup environment variables**
+   Create a .env.local file and configure:
+   ```bash
+   NEXTAUTH_SECRET=your-secret-key
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+4. **Run the development server**
+   ```bash
+   npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. **Open your browser and go to:**
+   ```bash
+   http://localhost:3000
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Route Summary
+**Public Routes**
+/ → Home (Hero, Services, Navbar, Footer)
+/products → Browse all products
+/products/[id] → Product details page
+/highlight → Highlighted products
+/login → Login page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Protected Routes (After Login)**
+/dashboard → Dashboard main page
+/dashboard/addproduct → Add new product
+/dashboard/allproducts → View all products
+   

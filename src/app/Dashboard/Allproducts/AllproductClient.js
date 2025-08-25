@@ -8,7 +8,7 @@ export default function AllProductClient() {
     const { data: products = [], isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/products");
+      const res = await axios.get("https://shop-app-server-six.vercel.app/products");
       return res.data;
     },
   });

@@ -12,7 +12,7 @@ export default function AddProductClient() {
   const router = useRouter();
 
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://shop-app-server-six.vercel.app",
   });
 
   const { register, handleSubmit, reset } = useForm();
